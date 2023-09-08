@@ -18,10 +18,10 @@ const Footer = () => {
                   <Link to="/contact">Contact</Link>
                 </li>
                 <li>
-                  <a href="/error404">Privacy Policy</a>
+                  <Link to="/error404">Privacy Policy</Link>
                 </li>
                 <li>
-                  <a href="/error404">Affiliate</a>
+                  <Link to="/error404">Affiliate</Link>
                 </li>
               </ul>
             </div>
@@ -32,16 +32,16 @@ const Footer = () => {
               <ul className="my-list list-unstyled">
            
                 <li>
-                  <a href="/error404">FAQ</a>
+                  <Link to="/error404">FAQ</Link>
                 </li>
                 <li>
-                  <a href="/error404">Help Center</a>
+                  <Link to="/error404">Help Center</Link>
                 </li>
                 <li>
-                  <a href="/error404">Legal Notices</a>
+                  <Link to="/error404">Legal Notices</Link>
                 </li>
                 <li>
-                  <a href="/error404">Corporate Information</a>
+                  <Link to="/error404">Corporate Information</Link>
                 </li>
               </ul>
             </div>
