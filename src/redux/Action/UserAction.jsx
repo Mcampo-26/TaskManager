@@ -36,7 +36,8 @@ export const loginUser = createAsyncThunk("auth/loginUser", async ({ email, pass
     const user = response.data;
     if (user.token) {
       sessionStorage.setItem("userToken", user.token); // Guardar token en sessionStorage
-      sessionStorage.setItem("userName", user.name); // Guardar nombre de usuario en sessionStorage
+      sessionStorage.setItem("userName", user.name);
+      sessionStorage.setItem("userRol", user.role);  // Guardar nombre de usuario en sessionStorage
       console.log (user.name);
       
     }
