@@ -21,7 +21,7 @@ const UpdateUsers = ({ user }) => {
 
   // Obtiene el token del usuario de sessionStorage
   const userToken = sessionStorage.getItem("userToken");
-
+  const isAdmin = sessionStorage.getItem("userRol") === "admin";
   // Obtén el nombre de usuario desde el estado de Redux
   const currentUser = useSelector((state) => state.user);
   const userName = currentUser.userName;
@@ -119,7 +119,10 @@ const UpdateUsers = ({ user }) => {
           <Modal.Body className="custom-modal">
             <Form>
               <Form.Group className="mb-3" controlId="formBasicName">
-                <Form.Label className="backupdate">     <p className='mx-2 my-1 text-light'> Name </p></Form.Label>
+                <Form.Label className="backupdate">
+                  {" "}
+                  <p className="mx-2 my-1 text-light"> Name </p>
+                </Form.Label>
                 <Form.Control
                   type="text"
                   name="name"
@@ -129,7 +132,10 @@ const UpdateUsers = ({ user }) => {
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label className="backupdate"> <p className='mx-2 my-1 text-light'>Email address   </p></Form.Label>
+                <Form.Label className="backupdate">
+                  {" "}
+                  <p className="mx-2 my-1 text-light">Email address </p>
+                </Form.Label>
                 <Form.Control
                   type="email"
                   name="email"
@@ -138,18 +144,10 @@ const UpdateUsers = ({ user }) => {
                 />
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label className="backupdate"> <p className='mx-2 my-1 text-light'>Password   </p> </Form.Label>
-                <Form.Control
-                  type="password"
-                  name="password"
-                  value={formDataRedux.password}
-                  onChange={handleFormChange}
-                />
-              </Form.Group>
-
               <Form.Group className="mb-3" controlId="formBasicRole">
-                <Form.Label className="backupdate"> <p className='mx-2 my-1 text-light'>Role</p></Form.Label>
+                <Form.Label className="backupdate">
+                  <p className="mx-2 my-1 text-light">Role</p>
+                </Form.Label>
                 <div>
                   <Form.Check
                     inline
@@ -160,6 +158,8 @@ const UpdateUsers = ({ user }) => {
                     value="user"
                     checked={formDataRedux.role === "user"}
                     onChange={handleFormChange}
+                    disabled={isAdmin} 
+                  
                   />
                   <Form.Check
                     inline
@@ -170,6 +170,7 @@ const UpdateUsers = ({ user }) => {
                     value="admin"
                     checked={formDataRedux.role === "admin"}
                     onChange={handleFormChange}
+                   // Deshabilita si el usuario actual es admin
                   />
                 </div>
               </Form.Group>
