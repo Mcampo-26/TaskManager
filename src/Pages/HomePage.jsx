@@ -33,16 +33,13 @@ const HomePage = () => {
             </Link>
           </div>
         </Col>
-
         <Col
         data-aos="fade-left"
           lg={6}
           md={6}
           sm={12}
-          className=" my-5 d-flex justify-content-center align-items-center" 
-        >
+          className=" my-5 d-flex justify-content-center align-items-center"         >
           <img src={ImgFondo} alt="Imagen de Fondo" className="img-fondo" />
-
           <img src={ImgP} alt="Imagen Principal" className="img-principal" />
         </Col>
       </Row>

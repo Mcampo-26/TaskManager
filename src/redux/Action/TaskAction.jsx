@@ -17,11 +17,13 @@ export const setFilterByDone = createAction("tasks/setFilterByDone");
 
 export const setFilterByPending = createAction("tasks/setFilterByPending");
 
+export const updateFilteredTasks = createAction("tasks/updateFilteredTasks");
+
 export const createTask = createAsyncThunk("tasks/createTask", async ({ data, token }) => {
   try {
     const response = await axios.post(`${URL}/tasks/create`, data, {
       headers: {
-        Authorization: `Bearer ${token}` // Agrega el token al encabezado de autorización
+        Authorization: `Bearer ${token}`
       }
     });
     return response.data; 
@@ -31,36 +33,31 @@ export const createTask = createAsyncThunk("tasks/createTask", async ({ data, to
 });
 
 export const searchTasks = createAsyncThunk("tasks/searchTasks", async (searchTerm) => {
-  try {
-    console.log(`Searching for term: ${searchTerm}`);
+  try {   
     const response = await axios.get(`${URL}/tasks/search?term=${searchTerm}`, {
       headers: {
         Authorization: `Bearer ${sessionStorage.getItem("userToken")}`,
       },
     });
-
-    console.log("Search results:", response.data);
-    return response.data; // Esto debería ser un arreglo de tareas filtradas
+    return response.data; 
   } catch (error) {
-    console.error("Error searching tasks:", error);
-    throw error;
+      throw error;
   }
 });
 
-export const updateFilteredTasks = createAction("tasks/updateFilteredTasks");
+
 
 
 
 export const getByUser = createAsyncThunk("tasks/getByUser", async () => {
   try {
-    const userToken = sessionStorage.getItem("userToken"); // Obtiene el token del sessionStorage
+    const userToken = sessionStorage.getItem("userToken"); 
     const response = await axios.get(`${URL}/tasks/get`, {
       headers: {
-        Authorization: `Bearer ${userToken}`, // Agrega el token en los headers
+        Authorization: `Bearer ${userToken}`
       },
     });
-    console.log(response.data);
-    return response.data;
+     return response.data;
   } catch (error) {
     throw error;
   }
@@ -80,7 +77,7 @@ export const updateTask = createAsyncThunk(
           },
         }
       );
-      return response.data; // Debe devolver la tarea actualizada
+      return response.data; 
     } catch (error) {
       throw error;
     }

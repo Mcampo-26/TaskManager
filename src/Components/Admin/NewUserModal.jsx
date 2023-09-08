@@ -18,7 +18,7 @@ const NewUserModal = ({ showModal, closeModal }) => {
     const passwordRegex = /^[A-Za-z0-9]{6,}$/;
 
     useEffect(() => {
-        // Inicializa AOS una vez que el componente se haya montado
+     
         AOS.init();
     }, []);
 
@@ -56,13 +56,13 @@ const NewUserModal = ({ showModal, closeModal }) => {
         try {
             await dispatch(registerUser({ name, email, password }));
             dispatch(getUsers());
-            console.log("Usuario creado");
+           
             closeModal();
             setName("");
             setEmail("");
             setPassword("");
         } catch (error) {
-            console.error("Error al crear el usuario:", error);
+          
             Swal.fire({
                 icon: "error",
                 title: "Registration Failed",

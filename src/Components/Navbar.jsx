@@ -11,7 +11,7 @@ import "../Components/Task/css/Nav.css";
 
 const Navbar = () => {
   const userToken = sessionStorage.getItem("userToken");
-  const isAdmin = sessionStorage.getItem("userRol") === "admin"; // Verifica si el usuario es administrador
+  const isAdmin = sessionStorage.getItem("userRol") === "admin"; 
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -24,9 +24,7 @@ const Navbar = () => {
 
   const isHomePage = location.pathname === "/";
   const isNotFoundPage = location.pathname === "/notfound";
-
   const [showModal, setShowModal] = useState(false);
-
   const openModal = () => {
     setShowModal(true);
   };
@@ -36,13 +34,8 @@ const Navbar = () => {
   };
 
   const userName = sessionStorage.getItem("userName");
-
-  useEffect(() => {
-    // Este useEffect se ejecutará cada vez que userName cambie en el sessionStorage
-    // Puedes realizar acciones relacionadas con el cambio del nombre de usuario aquí
-    console.log("UserName updated:", userName);
-  }, [userName]); // Asegúrate de incluir userName como una dependencia
-
+  useEffect(() => {  
+  }, [userName]); 
   const capitalizeFirstLetter = (string) => {
     if (string && typeof string === "string" && string.length > 0) {
       return string.charAt(0).toUpperCase() + string.slice(1);
@@ -66,8 +59,7 @@ const Navbar = () => {
   return (
     <Nav
       activeKey="/"
-      className="fixed-top  nav justify-content-between col-lg-12 col-md-12 col-sm-12"
-    >
+      className="fixed-top  nav justify-content-between col-lg-12 col-md-12 col-sm-12"    >
       <Nav.Item className="mx-5">
         <Row className="d-flex align-items-center">
           <Col xs="12" className="text-center">
@@ -93,7 +85,6 @@ const Navbar = () => {
           </h1>
         </Nav.Item>
       )}
-
       {userToken && !isHomePage && (
         <Nav.Item className="mr-5 d-flex">
           <Button
@@ -115,7 +106,6 @@ const Navbar = () => {
               New Task
             </Button>
           )}
-
           <ModalPost showModal={showModal} closeModal={closeModal} />
         </Nav.Item>
       )}

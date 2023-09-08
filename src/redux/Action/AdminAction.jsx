@@ -12,8 +12,7 @@ export const registerUser = createAsyncThunk("auth/registerUser", async ({name ,
         name,
         email,
         password,
-         // Agrega el nombre del usuario al cuerpo de la solicitud
-      });
+            });
       return response.data;
     } catch (error) {
       throw error;
@@ -50,8 +49,7 @@ export const getUsers = createAsyncThunk("user/getUsers", async () => {
                 Authorization: `Bearer ${userToken}`,
             },
         });
-        console.log(response.data);
-        return response.data;
+          return response.data;
     } catch (error) {
         throw error;
     }
@@ -59,7 +57,7 @@ export const getUsers = createAsyncThunk("user/getUsers", async () => {
 
 
 
-// Define la acción asincrónica para actualizar un usuario
+
 export const updateUser = createAsyncThunk('users/updateUser', async ({ userId, updatedUser, token }) => {
   try {
     const response = await axios.put(`${URL}/users/update/${userId}`, updatedUser, {
@@ -68,12 +66,8 @@ export const updateUser = createAsyncThunk('users/updateUser', async ({ userId, 
       },
     });
     const updatedUserData = response.data;
-    console.log('Usuario actualizado con éxito', updatedUserData);
-
-    // actualizar el nombre de usuario en el estado global de Redux
     dispatch(setUser(updatedUserData.name));
-
-    return updatedUserData; // Debe devolver el usuario actualizado
+    return updatedUserData; 
   } catch (error) {
     throw error;
   }

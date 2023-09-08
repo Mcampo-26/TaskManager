@@ -6,16 +6,6 @@
     }
 }
 
-tr.odd-row {
-    background-color: lightcoral !important;
-    /* Cambia el color de fondo a tu preferencia */
-}
-
-tr.even-row {
-    background-color: lightblue !important;
-    /* Cambia el color de fondo a tu preferencia */
-}
-
 .table {
     width: 100%;
     background-color: #fff;
@@ -23,7 +13,6 @@ tr.even-row {
     border-radius: 4px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     table-layout: fixed;
-    /* Fuerza el ancho de la tabla */
 }
 
 @media (max-width: 768px) {
@@ -69,7 +58,6 @@ tr.even-row {
 
 .row {
     margin: 0;
-    /* Elimina el margen lateral */
 }
 
 .UserTable {

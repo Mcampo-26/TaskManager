@@ -8,16 +8,13 @@ const TaskPage = () => {
   const navigate = useNavigate();
   const [alertShown, setAlertShown] = useState(false);
   const countdownRef = useRef(4);
-
   useEffect(() => {
     if (!userToken && !alertShown) {
       const timer = setInterval(() => {
         countdownRef.current -= 1;
-
         Swal.update({
           html: `You will be redirected to the login page in <b>${countdownRef.current}</b> seconds...`,
         });
-
         if (countdownRef.current === 0) {
           clearInterval(timer);
           Swal.close();
@@ -25,14 +22,12 @@ const TaskPage = () => {
           navigate('/login');
         }
       }, 1000);
-
       Swal.fire({
         icon: 'warning',
         title: 'Please log in first',
         html: `You will be redirected to the login page in <b>${countdownRef.current}</b> seconds...`,
         showConfirmButton: false,
       });
-
       return () => clearInterval(timer);
     }
   }, [userToken, alertShown, navigate]);
@@ -40,7 +35,6 @@ const TaskPage = () => {
   if (!userToken && !alertShown) {
     return null;
   }
-
   return (
     <div>
       <UserTaskList />

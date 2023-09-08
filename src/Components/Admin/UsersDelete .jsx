@@ -4,10 +4,8 @@ import { deleteUser } from '../../redux/Action/AdminAction';
 import Swal from 'sweetalert2';
 
 const UsersDelete = ({ userId }) => {
-  const dispatch = useDispatch();
-  
+  const dispatch = useDispatch();  
   const userToken = sessionStorage.getItem('userToken');
-
   const handleDeleteUser = () => {
     Swal.fire({
       title: 'Are you sure?',

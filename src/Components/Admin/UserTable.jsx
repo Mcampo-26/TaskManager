@@ -5,14 +5,10 @@ import '../Admin/Css/UserTable.css'
 
 const UserTable = ({ users }) => {
   const userToken = sessionStorage.getItem('userToken');
-
-  // Estado para el usuario seleccionado
   const [selectedUser, setSelectedUser] = useState(null);
-
   const handleUserSelect = (user) => {
     setSelectedUser(user);
   };
-
   return (
     <div>
       <div>

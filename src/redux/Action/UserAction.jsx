@@ -15,8 +15,7 @@ export const registerUser = createAsyncThunk("auth/registerUser", async ({name ,
       name,
       email,
       password,
-       // Agrega el nombre del usuario al cuerpo de la solicitud
-    });
+        });
     return response.data;
   } catch (error) {
     throw error;
@@ -25,7 +24,7 @@ export const registerUser = createAsyncThunk("auth/registerUser", async ({name ,
 
 
 
-// Acción asincrónica para iniciar sesión
+
 
 export const loginUser = createAsyncThunk("auth/loginUser", async ({ email, password }) => {
   try {
@@ -35,11 +34,9 @@ export const loginUser = createAsyncThunk("auth/loginUser", async ({ email, pass
     });
     const user = response.data;
     if (user.token) {
-      sessionStorage.setItem("userToken", user.token); // Guardar token en sessionStorage
+      sessionStorage.setItem("userToken", user.token); 
       sessionStorage.setItem("userName", user.name);
-      sessionStorage.setItem("userRol", user.role);  // Guardar nombre de usuario en sessionStorage
-      console.log (user.name);
-      
+      sessionStorage.setItem("userRol", user.role);       
     }
     return user;
   } catch (error) {
@@ -49,7 +46,7 @@ export const loginUser = createAsyncThunk("auth/loginUser", async ({ email, pass
 
 
 
-// Acción asincrónica para cerrar sesión
+
 export const logoutUser = createAsyncThunk("auth/logoutUser", async () => {
   try {
     const response = await axios.post(`${URL}/Auth/logout`);

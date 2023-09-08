@@ -7,8 +7,8 @@ const initialFormState = {
   prioridad: "Medium",
   done: false,
   pending: true,
-  newStatus: "pending", // Agrega newStatus al estado inicial
-  showModal: false, // Agrega showModal al estado inicial
+  newStatus: "pending", 
+  showModal: false, 
 };
 
 const formSlice = createSlice({
@@ -34,7 +34,7 @@ const formSlice = createSlice({
       state.pending = action.payload;
     },
     setNewStatus: (state, action) => {
-      state.newStatus = action.payload; // Agrega la acción setNewStatus
+      state.newStatus = action.payload; 
     },
     setShowModal: (state, action) => {
       state.showModal = action.payload;
@@ -49,7 +49,7 @@ export const {
   updatePrioridad,
   updateDone,
   updatePending,
-  setNewStatus, // Exporta la acción setNewStatus
+  setNewStatus, 
   setShowModal,
 } = formSlice.actions;
 

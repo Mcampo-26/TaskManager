@@ -23,9 +23,9 @@ const graficoSlice = createSlice({
           },
         },
       },
-      labels: [], // Asegúrate de que labels esté definido en el estado inicial
+      labels: [], 
     },
-    tasksByStateData: {  // Define tasksByStateData en el estado inicial
+    tasksByStateData: {  
       series: [],
       options: {},
     },
@@ -34,8 +34,8 @@ const graficoSlice = createSlice({
     updateGrafico: (state, action) => {
       state.series = action.payload.series;
       state.options = action.payload.options;
-      state.labels = action.payload.labels; // Asegúrate de actualizar labels correctamente
-      state.tasksByStateData = action.payload.tasksByStateData; // Actualiza tasksByStateData
+      state.labels = action.payload.labels; 
+      state.tasksByStateData = action.payload.tasksByStateData; 
     },
   },
 });

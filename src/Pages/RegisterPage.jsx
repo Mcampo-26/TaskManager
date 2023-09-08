@@ -3,42 +3,33 @@ import { Form, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../redux/Action/UserAction";
-import Swal from "sweetalert2"; // Importa SweetAlert
-
+import Swal from "sweetalert2"; 
 const RegisterForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [validated, setValidated] = useState(false); // Estado para validar el formulario
+  const [validated, setValidated] = useState(false); 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // Expresión regular para validar el nombre (solo letras y espacios)
-  const nameRegex = /^[A-Za-z0-9\s]+$/;
-  // Expresión regular para validar un email
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  // Expresión regular para validar una contraseña (alfanumérica, al menos 6 caracteres)
+  const nameRegex = /^[A-Za-z0-9\s]+$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const passwordRegex = /^[A-Za-z0-9]{6,}$/;
 
   useEffect(() => {
-    // Inicializa AOS una vez que el componente se haya montado
     AOS.init();
   }, []);
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.currentTarget;
-
-    // Validación personalizada para el nombre, email y contraseña
     if (!nameRegex.test(name)) {
       Swal.fire({
         icon: "error",
         title: "Invalid Name",
         text: "Please enter a valid name (only letters and spaces).",
       });
-      return;
-    }
-
+      return;    }
     if (!emailRegex.test(email)) {
       Swal.fire({
         icon: "error",
@@ -47,35 +38,28 @@ const RegisterForm = () => {
       });
       return;
     }
-
     if (!passwordRegex.test(password)) {
       Swal.fire({
         icon: "error",
         title: "Invalid Password",
         text: "Password must be between 6 and 15 characters and alphanumeric.",
-      });
-      return;
+      });      return;
     }
 
     try {
       await dispatch(registerUser({ name, email, password }));
-      console.log("Usuario creado");
-      navigate("/login");
+          navigate("/login");
     } catch (error) {
-      console.error("Error al crear el usuario:", error);
-      Swal.fire({
+           Swal.fire({
         icon: "error",
         title: "Registration Failed",
         text: "Please check your registration details and try again.",
       });
-
-      // Limpiar los campos del formulario
       setName("");
       setEmail("");
       setPassword("");
     }
   };
-
   return (
     <Form
     data-aos="fade-down"
@@ -100,7 +84,6 @@ const RegisterForm = () => {
           Please enter a valid name (only letters and spaces).
         </Form.Control.Feedback>
       </Form.Group>
-
       <Form.Group controlId="formBasicEmail" className="mb-3">
         <Form.Label className="text-light d-flex justify-content-center LoginRes">
           {" "}
@@ -117,7 +100,6 @@ const RegisterForm = () => {
           Please enter a valid email address.
         </Form.Control.Feedback>
       </Form.Group>
-
       <Form.Group controlId="formBasicPassword" className="mb-3">
         <Form.Label className="text-light d-flex justify-content-center LoginRes">
           <strong>Password</strong>

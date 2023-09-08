@@ -23,11 +23,9 @@ const Contact = () => {
       e.preventDefault();
   
       try {
-        // Send the form using EmailJS
-        await emailjs.sendForm('service_bxl40rs', 'template_goi94t2', e.target, 'h3yy4ICYJmisn2ANM');
-  
-        // Reset the form after successful submission
-        setFormData({
+       
+        await emailjs.sendForm('service_bxl40rs', 'template_goi94t2', e.target, 'h3yy4ICYJmisn2ANM');  
+               setFormData({
           name: '',
           email: '',
           inquiry: '',
@@ -39,8 +37,7 @@ const Contact = () => {
         console.error('Error sending the form:', error);
         alert('An error occurred while sending the form. Please try again.');
       }
-    };
-  
+    };  
     return (
       <div>
         <body className="my-5">

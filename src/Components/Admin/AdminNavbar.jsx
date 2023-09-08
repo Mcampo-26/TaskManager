@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Nav, Button } from "react-bootstrap";
-import NewUserModal from "./NewUserModal"; // Importa el componente NewUserModal
+import NewUserModal from "./NewUserModal"; 
 
 const AdminNavbar = () => {
   const [showModal, setShowModal] = useState(false);

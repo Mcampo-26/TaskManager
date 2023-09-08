@@ -10,8 +10,8 @@ import {
   clearSearchTerm,
   setFilterByDate,
   setFilterByPriority,
-  setFilterByDone, // Nuevo filtro por estado "done"
-  setFilterByPending, // Nuevo filtro por estado "pending"
+  setFilterByDone, 
+  setFilterByPending, 
 } from "../Action/TaskAction";
 
 const tasksSlice = createSlice({

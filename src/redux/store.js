@@ -5,7 +5,7 @@ import userReducer from './Reducers/UserSlice';
 import formReducer from './Reducers/FormSlice'; 
 import adminUsersReducer from './Reducers/AdminSlice';
 import thunk from 'redux-thunk';
-import updateAdminReducer from '../redux/Reducers/UpdateAdminSlice'; // Cambia la ruta a tu archivo UpdateAdminSlice.
+import updateAdminReducer from '../redux/Reducers/UpdateAdminSlice'; 
 
 const store = configureStore({
   reducer: {
@@ -14,7 +14,7 @@ const store = configureStore({
     form: formReducer, 
     grafico: GraficoReducer,
     adminUsers: adminUsersReducer,
-    updateAdmin: updateAdminReducer, // Cambia el nombre aquí para que coincida
+    updateAdmin: updateAdminReducer, 
   },
   middleware: [thunk],
 });

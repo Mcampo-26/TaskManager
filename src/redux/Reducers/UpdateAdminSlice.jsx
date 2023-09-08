@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { updateUser } from '../Action/AdminAction';
-import { setUser } from '../Action/UserAction'; // Importa la acción setUser
+import { setUser } from '../Action/UserAction'; 
 import { createSelector } from '@reduxjs/toolkit';
 
 export const selectUpdatedUser = createSelector(
@@ -49,12 +49,9 @@ const updateAdminSlice = createSlice({
       state.users = state.users.map(user => (user._id === updatedUser._id ? updatedUser : user));
       if (state.selectedUser && state.selectedUser._id === updatedUser._id) {
         state.selectedUser = updatedUser;
-      }
-      
-      // Despacha la acción setUser para actualizar el nombre de usuario en el navbar
+      }      
       if (updatedUser.name) {
-        // Asegúrate de que `updatedUser` contenga la propiedad `name`
-        setUser(updatedUser.name); // Cambio aquí, no necesitas state.dispatch
+        setUser(updatedUser.name); 
       }
     });
   },

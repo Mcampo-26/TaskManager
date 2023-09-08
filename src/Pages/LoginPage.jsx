@@ -26,21 +26,12 @@ const LoginForm = () => {
     } else {
       try {
         const user = await dispatch(loginUser({ email, password, role }));
-        if (user.token) {
-        
-          console.log("buscando usuario",user.name)
+        if (user.token) {      
         }
-        const token = user.payload.token; // Obtener el token del usuario logueado
-        const userName = user.payload.name; // Obtener el nombre del usuario logueado name=user.payload.token;
-          dispatch(setUser(userName)); // Guardar nombre de usuario en el estado global de Redux
-        console.log("usuario obtenidooooooo:", user.name);
-  
-        // Almacenar el token en el sessionStorage
-        sessionStorage.setItem('token', token);
- 
-
-  
-      
+        const token = user.payload.token; 
+                const userName = user.payload.name; 
+          dispatch(setUser(userName));       
+        sessionStorage.setItem('token', token);       
         if (user.payload.role === "admin") {
           navigate("/adminPage");
         }
@@ -59,12 +50,9 @@ const LoginForm = () => {
   useEffect(() => {
     setShowAnimation(false);
   }, []);
-
-
   return (
      <div data-aos={showAnimation ? "fade-down" : ""}>
-    <Form
-  
+    <Form  
       noValidate
       validated={validated}
       onSubmit={handleSubmit}
@@ -86,7 +74,6 @@ const LoginForm = () => {
           Please enter a valid email.
         </Form.Control.Feedback>
       </Form.Group>
-
       <Form.Group controlId="formBasicPassword" className="mb-3 ">
         <Form.Label className="text-light d-flex justify-content-center LoginRes">
           <strong>Password</strong>

@@ -18,17 +18,12 @@ const UpdateUsers = ({ user }) => {
   const selectedUser = useSelector((state) =>
     selectUpdatedUser(state, user._id)
   );
-
-  // Obtiene el token del usuario de sessionStorage
   const userToken = sessionStorage.getItem("userToken");
   const isAdmin = sessionStorage.getItem("userRol") === "admin";
-  // Obtén el nombre de usuario desde el estado de Redux
   const currentUser = useSelector((state) => state.user);
   const userName = currentUser.userName;
-
   useEffect(() => {
     if (showModal && selectedUser) {
-      // Cuando el modal se muestra y el usuario existe, actualiza el estado de Redux formData
       dispatch(
         setFormData({
           name: selectedUser.name || "",
@@ -38,7 +33,6 @@ const UpdateUsers = ({ user }) => {
         })
       );
     } else {
-      // Cuando se cierra el modal, restablece el estado de Redux formData
       dispatch(
         setFormData({
           name: "",
@@ -49,24 +43,19 @@ const UpdateUsers = ({ user }) => {
       );
     }
   }, [showModal, selectedUser, dispatch]);
-
   const handleOpenModal = () => {
     dispatch(setSelectedUser(user));
     dispatch(setShowModal(true));
   };
-
   const handleCloseModal = () => {
     dispatch(setShowModal(false));
   };
-
   const handleUpdate = async () => {
     try {
       if (!selectedUser || !selectedUser._id) {
         console.error("El ID del usuario es indefinido.");
         return;
       }
-
-      // Despacha la acción para actualizar el usuario en el servidor utilizando formDataRedux desde Redux
       await dispatch(
         updateUser({
           userId: selectedUser._id,
@@ -74,16 +63,9 @@ const UpdateUsers = ({ user }) => {
           token: userToken,
         })
       );
-
-      // Despacha la acción para obtener los usuarios actualizados
       await dispatch(getUsers());
-
-      // Obtiene el nombre actualizado del usuario desde el estado de Redux
       const updatedUserName = formDataRedux.name;
-
-      // Actualiza el nombre de usuario en el navbar con el nuevo nombre actualizado
       dispatch(setUser(updatedUserName));
-
       handleCloseModal();
     } catch (error) {
       console.error("Error al actualizar el usuario:", error);
@@ -92,7 +74,7 @@ const UpdateUsers = ({ user }) => {
 
   const handleFormChange = (e) => {
     const { name, value } = e.target;
-    // Actualiza el estado de Redux formData
+
     dispatch(
       setFormData({
         ...formDataRedux,
@@ -111,7 +93,6 @@ const UpdateUsers = ({ user }) => {
         >
           Update
         </Button>
-
         <Modal show={showModal} onHide={handleCloseModal} centered>
           <Modal.Header>
             <Modal.Title>Update User</Modal.Title>
@@ -130,7 +111,6 @@ const UpdateUsers = ({ user }) => {
                   onChange={handleFormChange}
                 />
               </Form.Group>
-
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label className="backupdate">
                   {" "}
@@ -143,7 +123,6 @@ const UpdateUsers = ({ user }) => {
                   onChange={handleFormChange}
                 />
               </Form.Group>
-
               <Form.Group className="mb-3" controlId="formBasicRole">
                 <Form.Label className="backupdate">
                   <p className="mx-2 my-1 text-light">Role</p>
@@ -158,8 +137,7 @@ const UpdateUsers = ({ user }) => {
                     value="user"
                     checked={formDataRedux.role === "user"}
                     onChange={handleFormChange}
-                    disabled={isAdmin} 
-                  
+                    disabled={isAdmin}
                   />
                   <Form.Check
                     inline
@@ -170,7 +148,6 @@ const UpdateUsers = ({ user }) => {
                     value="admin"
                     checked={formDataRedux.role === "admin"}
                     onChange={handleFormChange}
-                   // Deshabilita si el usuario actual es admin
                   />
                 </div>
               </Form.Group>
