@@ -203,3 +203,13 @@
     padding-left: 25px !important
     /* Espacio entre los botones */
 }
+
+@media (max-width: 445px) {
+    .responsive-boton {
+        /* Establece un tamaño de fuente más pequeño */
+        font-size: calc(10px - 2px * ((1000px - 445px) / (1920 - 445)));
+        /* Ajusta el tamaño de fuente con una transición suave */
+        transition: font-size 0.3s ease;
+        /* Otros estilos de ajuste para los botones en pantallas pequeñas */
+    }
+}

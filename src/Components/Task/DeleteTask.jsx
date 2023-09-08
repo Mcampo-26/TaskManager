@@ -35,7 +35,7 @@ const DeleteTask = ({ _id }) => {
   };
 
   return (
-    <button className="btn btn-danger button-Delete text-light my-2" onClick={handleDeleteTask}>
+    <button className="responsive-boton button-Delete " onClick={handleDeleteTask}>
       Delete
     </button>
   );

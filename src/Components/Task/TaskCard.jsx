@@ -64,13 +64,13 @@ const TaskCard = ({
 
             <button
               type="button"
-              className="btn btn-primary button-Update"
+              className=" button-Update"
               onClick={() => setShowUpdateModal(true)}
             >
               Update
             </button>
-            <DeleteTask  className="responsive-boton" _id={id} />
-            <UpdateTaskModal className="responsive-boton"
+            <DeleteTask  _id={id} />
+            <UpdateTaskModal 
               show={showUpdateModal}
               onHide={() => setShowUpdateModal(false)}
               task={{
