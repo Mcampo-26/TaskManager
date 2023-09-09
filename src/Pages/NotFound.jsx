@@ -6,7 +6,7 @@ const NotFound = () => {
   return (
     <>
       <body>
-        <main className="d-flex flex-column align-items-center img-404">
+        <main className="d-flex flex-column align-items-center img-404 responsive-error">
           <img src={error} alt="" className="w-50 " />
           <h5 className=" text-center col-lg-6">
           The section you're looking for is currently unavailable. Please return to the Home page or contact the administration.

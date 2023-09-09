@@ -39,7 +39,7 @@
 
 @media (max-width: 800px) {
     .Home {
-        margin-top: 5rem;
+        margin-bottom: 10px;
         flex-direction: column-reverse;
     }
     .img-fondo {

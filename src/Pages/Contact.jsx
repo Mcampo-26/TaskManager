@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
+import '../Pages/css/Contact.css'
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -42,8 +43,8 @@ const Contact = () => {
       <div>
         <body className="my-5">
           <main>
-            <section className="container main_contacto">
-              <section className="row  mt-5">
+            <section className="container main_contacto ">
+              <section className="row   mt-5">
                 <article className="col-sm-12 col-md-6 my-3">
                   <h3 className="text-center text-light">Send a Message</h3>
                   <form onSubmit={handleSubmit}>

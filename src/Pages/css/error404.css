@@ -1,9 +1,17 @@
-
-
 .img-404{
     margin-top: 5rem;
     font-family: 'Merriweather Sans', sans-serif;
     font-family: 'REM', sans-serif;
     font-family: 'Roboto Slab', serif;
     color: #7d1dfa;
+}
+@media (max-width: 768px) {
+    .img-404{
+        margin-top: 16rem;
+        margin-bottom: 10rem;
+        font-family: 'Merriweather Sans', sans-serif;
+        font-family: 'REM', sans-serif;
+        font-family: 'Roboto Slab', serif;
+        color: #7d1dfa;
+    }
 }
