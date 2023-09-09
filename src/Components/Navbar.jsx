@@ -33,16 +33,7 @@ const Navbar = () => {
     setShowModal(false);
   };
 
-  const userName = sessionStorage.getItem("userName");
-  useEffect(() => {  
-  }, [userName]); 
-  const capitalizeFirstLetter = (string) => {
-    if (string && typeof string === "string" && string.length > 0) {
-      return string.charAt(0).toUpperCase() + string.slice(1);
-    } else {
-      return string;
-    }
-  };
+ 
 
   const handleLogoClick = () => {
     if (userToken) {
@@ -81,7 +72,7 @@ const Navbar = () => {
       {userToken && !isHomePage && (
         <Nav.Item className="mx-auto">
           <h1 className="text-light my-3 Nav-title">
-            Welcome {capitalizeFirstLetter(userName)}
+            Welcome 
           </h1>
         </Nav.Item>
       )}
