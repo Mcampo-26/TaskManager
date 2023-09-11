@@ -55,14 +55,14 @@ const Navbar = () => {
         <Row className="d-flex align-items-center">
           <Col xs="12" className="text-center">
             <div
-              className="d-flex align-items-center text-light text-decoration-none my-2"
+              className="d-flex text-light text-decoration-none  logoclass"
               onClick={handleLogoClick}
             >
-              <img
+              <img  
                 src={Logo}
                 alt="TaskGenius Logo"
                 height="50"
-                className="mr-3"
+                className="mr-3 logoclassimg"
               />
               <h1 className="text-light Nav-title m-0">TaskGenius</h1>
             </div>

@@ -41,3 +41,17 @@ Button {
     color: rgb(255, 255, 255) !important;
     font-family: "Merriweather Sans", "REM", "Roboto Slab", sans-s
 }
+
+@media (max-width: 395px) {
+    .logoclassimg {
+        margin-left: -4em !important;
+        margin-top: .05em;
+    }
+}
+
+@media (max-width: 395px) {
+    .logoclass {
+        margin-top: 1em;
+        margin-right: em !important;
+    }
+}

@@ -1,5 +1,21 @@
-@media (max-width: 768px) {
-  .main_contacto{
-    margin-top: 10.5rem;
-  }
-}
+    .main_contacto {
+        margin-top: 10em !important;
+    }
+    
+    .titulo {
+        margin-top: -3em;
+    }
+    
+    .form-con {
+        padding-top: -45em !important
+    }
+    
+    @media (max-width: 560px) {
+        .form-con {
+            margin-top: 5em !important;
+        }
+    }
+    
+    .scroll-to {
+        margin-top: 5em;
+    }

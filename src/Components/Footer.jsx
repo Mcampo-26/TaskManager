@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../Components/Task/css/Footer.css";
 
+
 const Footer = () => {
   return (
     <footer className="footer text-center">

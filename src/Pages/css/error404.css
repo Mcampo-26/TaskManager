@@ -1,17 +1,26 @@
-.img-404{
-    margin-top: 5rem;
+.img-404 {
+    margin-top: 13em !important;
     font-family: 'Merriweather Sans', sans-serif;
     font-family: 'REM', sans-serif;
     font-family: 'Roboto Slab', serif;
     color: #7d1dfa;
+    transition: width 0.3s ease, margin-top 0.3s ease;
+    /* Agrega una transición suave al tamaño y al margen superior */
 }
-@media (max-width: 768px) {
-    .img-404{
-        margin-top: 16rem;
-        margin-bottom: 10rem;
-        font-family: 'Merriweather Sans', sans-serif;
-        font-family: 'REM', sans-serif;
-        font-family: 'Roboto Slab', serif;
-        color: #7d1dfa;
+
+@media (max-width: 670px) {
+    .esponsive-error {
+        width: 130% !important;
+        /* Cambia el ancho de la imagen */
+        /* Ajusta el margen izquierdo según sea necesario */
+        margin-top: 5em !important;
+        /* Ajusta el margen superior según sea necesario */
+    }
+}
+
+@media (max-width: 986px) {
+    .img-404 {
+        margin-top: 10em !important;
+        width: calc(300px + (500px - 300px) * ((100vw - 986px) / (1920 - 986)));
     }
 }

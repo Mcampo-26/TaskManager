@@ -1,17 +1,25 @@
-import React from "react";
+import React , {useEffect}from "react";
 import '../Pages/css/AboutUs.css';
 import Mauricio from "../img/20.jpg";
 import Manuel from "../img/22.png";
 import Samuel from "../img/24.jpg";
 
 const AboutUs = () => {
+  useEffect(() => {
+    const sectionElement = document.querySelector('#About');
+    if (sectionElement) {
+      sectionElement.classList.add('scroll-to'); // Agrega la clase scroll-to
+      const yOffset = -200;
+      window.scrollTo({ top: sectionElement.offsetTop + yOffset, behavior: 'smooth' });
+    }
+  }, []);
   return (
     <section
       className="page-section "
       id="Equipo-Directivo"
       data-aos="flip-down"
     >
-      <div className="container">
+      <div className="container" id="About">
         <div className="text-center">
           <h1 className="section-heading text-uppercase">
           Team TaskGenius
