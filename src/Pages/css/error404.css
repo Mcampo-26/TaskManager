@@ -9,22 +9,18 @@
 }
 
 @media (max-width: 670px) {
-    .esponsive-error {
+    .responsive-error {
         width: 130% !important;
         /* Cambia el ancho de la imagen */
         /* Ajusta el margen izquierdo según sea necesario */
-        margin-top: 5em !important;
+        margin-top: 10em !important;
         /* Ajusta el margen superior según sea necesario */
     }
 }
 
 @media (max-width: 986px) {
-    .img-404 {
+    .responsive-error {
         margin-top: 10em !important;
         width: calc(300px + (500px - 300px) * ((100vw - 986px) / (1920 - 986)));
     }
-}
-
-.scroll-to {
-    margin-top: 5em;
 }
