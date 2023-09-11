@@ -148,7 +148,7 @@ const UserTaskList = () => {
                 </div>
 
                 {!tasksFound && (
-                  <h1 className="text-center no-tasks-message3">
+                  <h1 className="text-center no-tasks-message">
                     No tasks found
                   </h1>
                 )}
