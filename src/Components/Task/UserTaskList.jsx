@@ -72,6 +72,9 @@ const UserTaskList = () => {
 
   const isClearButtonDisabled = searchTerm === "";
 
+  // Determina si hay tareas que coinciden con los filtros
+  const tasksFound = tasksToDisplay.length > 0;
+
   return (
     <>
       {tasks.length === 0 && (
@@ -86,7 +89,7 @@ const UserTaskList = () => {
           <div className="col-sm-12 col-md-10 col-lg-6">
             <div className="user-task-list-container container">
               <div className="row">
-                {tasksToDisplay.length > 0 && (
+                {tasksFound && (
                   <h1 className="text-center text-List">Task List</h1>
                 )}
 
@@ -144,7 +147,7 @@ const UserTaskList = () => {
                   </button>
                 </div>
 
-                {tasksToDisplay.length === 0 && (
+                {!tasksFound && (
                   <h1 className="text-center no-tasks-message3">
                     No tasks found
                   </h1>
@@ -168,7 +171,7 @@ const UserTaskList = () => {
             </div>
           </div>
 
-          {tasksToDisplay.length > 0 && (
+          {tasksFound && (
             <div className="col-sm-12 col-md-8 col-lg-6 graficoResponsive">
               <Grafico />
             </div>
