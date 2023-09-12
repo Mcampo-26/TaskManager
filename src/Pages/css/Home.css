@@ -42,6 +42,9 @@
         margin-bottom: 10px;
         flex-direction: column-reverse;
     }
+    .Welcome-home {
+        margin-top: 1em;
+    }
     .img-fondo {
         margin-top: 1rem;
         height: 20rem !important;

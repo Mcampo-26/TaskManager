@@ -34,3 +34,15 @@
 .scroll-to {
     margin-top: 5em !important;
 }
+
+@media (max-width: 886px) {
+    .section-heading {
+        margin-top: 6em;
+    }
+}
+
+@media (max-width: 485px) {
+    .section-heading {
+        margin-top: 8em !important;
+    }
+}
