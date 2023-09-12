@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteUser } from '../../redux/Action/AdminAction';
 import Swal from 'sweetalert2';
+import '../Admin/Css/UserDelete.css'
 
 const UsersDelete = ({ userId }) => {
   const dispatch = useDispatch();  
@@ -23,7 +24,7 @@ const UsersDelete = ({ userId }) => {
   };
 
   return (
-    <button className="btn btn-danger" onClick={handleDeleteUser}>
+    <button className="btn btn-danger user-details" onClick={handleDeleteUser}>
       Delete
     </button>
   );
