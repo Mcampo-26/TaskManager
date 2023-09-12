@@ -42,7 +42,7 @@ const Contact = () => {
   useEffect(() => {
     const formElement = document.querySelector('#contact-form');
     if (formElement) {
-      formElement.classList.add('scroll-to'); // Agrega la clase scroll-to
+      formElement.classList.add('scroll-to'); 
       const yOffset = -200
       window.scrollTo({ top: formElement.offsetTop + yOffset, behavior: 'smooth' });
     }

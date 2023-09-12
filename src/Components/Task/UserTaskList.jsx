@@ -72,7 +72,7 @@ const UserTaskList = () => {
 
   const isClearButtonDisabled = searchTerm === "";
 
-  // Determina si hay tareas que coinciden con los filtros
+ 
   const tasksFound = tasksToDisplay.length > 0;
 
   return (

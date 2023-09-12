@@ -8,7 +8,7 @@ const AboutUs = () => {
   useEffect(() => {
     const sectionElement = document.querySelector('#About');
     if (sectionElement) {
-      sectionElement.classList.add('scroll-to'); // Agrega la clase scroll-to
+      sectionElement.classList.add('scroll-to'); 
       const yOffset = -200;
       window.scrollTo({ top: sectionElement.offsetTop + yOffset, behavior: 'smooth' });
     }
