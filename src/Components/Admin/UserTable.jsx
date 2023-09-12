@@ -17,7 +17,8 @@ const UserTable = ({ users }) => {
       <div className="user-table-container ">
         <table className="table table-striped">
           <thead>
-            <tr className="table-responsive">
+          <tr className="table-responsive">
+          <th className="bg-primary d-none d-md-table-cell" scope=" col-md-6">ID</th>           
               <th className="bg-primary">Name</th>
               <th className="bg-primary">Email</th>
               <th className="bg-primary">Role</th>
@@ -26,11 +27,12 @@ const UserTable = ({ users }) => {
           </thead>
           <tbody>
             {users.map((user, index) => (
-              <tr
+              <tr 
                 key={user._id}
                 onClick={() => handleUserSelect(user)}
-                className={index % 2 === 0 ? "even-row" : "odd-row"}
-              >
+                className= "resp-table"
+              >                
+                <td className="d-none d-md-table-cell" scope=" col-md-6">{user._id}</td>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>{user.role}</td>

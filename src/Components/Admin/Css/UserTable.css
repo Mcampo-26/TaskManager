@@ -102,14 +102,23 @@
     }
 }
 
-@media (max-width: 404px) {
+@media (max-width: 410px) {
     .user-details {
         display: flex;
         flex-direction: column;
+        align-items: center !important;
+        /* Alinea el contenido horizontalmente */
+        text-align: center !important;
+        /* Alinea el texto en el centro */
     }
     .user-details .btn {
         margin-top: 5px;
         width: 3.9em;
-        margin-left: -0.5em !important;
+        margin-left: 1em !important;
+    }
+    .resp-table {
+        margin-top: -5em !important;
+        vertical-align: middle !important;
+        /* Centra verticalmente el contenido */
     }
 }
