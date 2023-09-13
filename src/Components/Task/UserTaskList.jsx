@@ -102,7 +102,7 @@ const UserTaskList = () => {
                     onChange={handleSearchChange}
                   />
                   <button
-                    className="clear-button"
+                    className="clear-button btn btn-sm btn-secondary active"
                     onClick={handleClearSearch}
                     disabled={isClearButtonDisabled}
                   >
