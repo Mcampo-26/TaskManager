@@ -42,6 +42,8 @@
     display: flex;
     justify-content: center;
     font-family: "Merriweather Sans", "REM", "Roboto Slab", sans-serif;
+    margin-top: -0.5em !important;
+    margin-bottom: 0.5em !important;
 }
 
 .user-details .btn {
@@ -98,7 +100,7 @@
         margin-top: 5px;
     }
     .UserTable {
-        margin-top: 1em;
+        margin-top: 2em !important;
     }
 }
 
@@ -107,9 +109,7 @@
         display: flex;
         flex-direction: column;
         align-items: center !important;
-        /* Alinea el contenido horizontalmente */
         text-align: center !important;
-        /* Alinea el texto en el centro */
     }
     .user-details .btn {
         margin-top: 5px;
@@ -117,8 +117,13 @@
         margin-left: 1em !important;
     }
     .resp-table {
-        margin-top: -5em !important;
         vertical-align: middle !important;
-        /* Centra verticalmente el contenido */
+    }
+    .user-table-container {
+        margin-left: -1.8em !important;
+        margin-top: 2em !important
+    }
+    .UserTable {
+        margin-top: 2.5em !important
     }
 }
