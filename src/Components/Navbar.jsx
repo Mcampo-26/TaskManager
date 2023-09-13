@@ -11,7 +11,16 @@ import "../Components/Task/css/Nav.css";
 
 const Navbar = () => {
   const userToken = sessionStorage.getItem("userToken");
-  const isAdmin = sessionStorage.getItem("userRol") === "admin"; 
+  const isAdmin = sessionStorage.getItem("userRol") === "admin";
+  const userName = sessionStorage.getItem("userName"); // Obtén el nombre de usuario
+
+  // Función para capitalizar la primera letra de una cadena
+  const capitalizeFirstLetter = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
+  const formattedUserName = userName ? capitalizeFirstLetter(userName) : "";
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -33,8 +42,6 @@ const Navbar = () => {
     setShowModal(false);
   };
 
- 
-
   const handleLogoClick = () => {
     if (userToken) {
       if (isAdmin) {
@@ -50,7 +57,8 @@ const Navbar = () => {
   return (
     <Nav
       activeKey="/"
-      className="fixed-top  nav justify-content-between col-lg-12 col-md-12 col-sm-12"    >
+      className="fixed-top  nav justify-content-between col-lg-12 col-md-12 col-sm-12"
+    >
       <Nav.Item className="mx-5">
         <Row className="d-flex align-items-center">
           <Col xs="12" className="text-center">
@@ -58,7 +66,7 @@ const Navbar = () => {
               className="d-flex text-light text-decoration-none  logoclass"
               onClick={handleLogoClick}
             >
-              <img  
+              <img
                 src={Logo}
                 alt="TaskGenius Logo"
                 height="50"
@@ -72,7 +80,7 @@ const Navbar = () => {
       {userToken && !isHomePage && (
         <Nav.Item className="mx-auto">
           <h1 className="text-light my-3 Nav-title">
-            Welcome 
+            Welcome {formattedUserName} {/* Mostrar el nombre de usuario */}
           </h1>
         </Nav.Item>
       )}
