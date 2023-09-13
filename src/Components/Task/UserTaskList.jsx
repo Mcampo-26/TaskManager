@@ -104,7 +104,7 @@ const UserTaskList = () => {
                   <button
                     className="clear-button btn btn-sm btn-secondary active"
                     onClick={handleClearSearch}
-                    disabled={isClearButtonDisabled}
+                 
                   >
                     Clear
                   </button>
@@ -115,27 +115,25 @@ const UserTaskList = () => {
                   style={{ margin: "10px 0" }}
                 >
                   <button
-                    className={`btn btn-sm btn-secondary  ${
+                    className={`btn btn-sm btn-secondary done-f  ${
                       filterByDone ? "active" : ""
                     }`}
                     onClick={handleFilterByDone}
                   >
                     Done
                   </button>
-                  <span style={{ margin: "0 5px" }}></span>{" "}
-             
+                            
                   <button
-                    className={`btn btn-sm btn-secondary ${
+                    className={`btn btn-sm btn-secondary pending-f ${
                       filterByPending ? "active" : ""
                     }`}
                     onClick={handleFilterByPending}
                   >
                     Pending
                   </button>
-                  <span style={{ margin: "0 5px" }}></span>{" "}
-                  
+                                  
                   <button
-                    className={`btn btn-sm btn-secondary  ${
+                    className={`btn btn-sm btn-secondary clar-f ${
                       filterByPending || filterByDone ? "active" : ""
                     }`}
                     onClick={() => {
