@@ -73,3 +73,14 @@
         transition: width 0.3s ease;
     }
 }
+
+@media (max-width:450px) {
+    .grafico {
+        width: 80% !important;
+        height: 110% !important;
+        order: 2 !important;
+        margin-top: 1em !important;
+        justify-content: center !important;
+        margin-left: 3em !important;
+    }
+}

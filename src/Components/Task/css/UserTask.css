@@ -11,32 +11,30 @@
     color: aliceblue;
     font-family: "Merriweather Sans", "REM", "Roboto Slab", sans-serif;
     white-space: nowrap;
-    /* Evitar el ajuste de línea */
     overflow: hidden;
-    /* Ocultar el texto adicional */
     text-overflow: ellipsis;
-    /* Mostrar puntos suspensivos (...) si el texto es demasiado largo */
 }
 
-@media (max-width:950px) {
+@media (max-width:1062px) {
     .text-List {
         font-size: 2.5em;
-        /* Ajusta el tamaño de fuente para dispositivos más pequeños */
-        margin-top: 0.2em !important;
-        /* Elimina el margen superior para evitar que se desplace hacia arriba */
+        margin-top: 0.8em !important;
         margin-bottom: 0;
-        /* Elimina el margen inferior para evitar que se desplace hacia arriba */
     }
 }
 
 @media (max-width:581px) {
     .text-List {
         font-size: 2.5em !important;
-        /* Ajusta el tamaño de fuente para dispositivos más pequeños */
-        margin-top: 1.5em !important;
-        /* Elimina el margen superior para evitar que se desplace hacia arriba */
+        margin-top: 2em !important;
         margin-bottom: 0;
-        /* Elimina el margen inferior para evitar que se desplace hacia arriba */
+    }
+}
+
+@media (max-width:384px) {
+    .text-List {
+        font-size: 2.5em !important;
+        margin-top: 3em !important;
     }
 }
 
@@ -50,9 +48,9 @@
 
 .text-List {
     font-size: 4em;
-    margin-top: -1em;
+    margin-top: -0.5em;
     justify-content: center;
-    margin-bottom: -0.5em;
+    margin-bottom: -6em !important;
     color: rgb(186, 191, 196) !important;
     font-family: "Merriweather Sans", "REM", "Roboto Slab", sans-serif;
 }
@@ -60,7 +58,6 @@
 .search-bar-container {
     display: flex;
     align-items: center;
-    /* Centra verticalmente los elementos en el contenedor */
     margin-left: 1em;
     margin-top: 6em;
     margin-bottom: 1em;
@@ -69,9 +66,7 @@
 .Search-Bar {
     height: 2.5em;
     width: 90%;
-    /* Hace que el campo de búsqueda ocupe todo el espacio disponible */
     font-size: 16px;
-    /* Ajusta el tamaño de la fuente */
 }
 
 .clear-button {
@@ -100,7 +95,6 @@
 @media (max-width: 626px) {
     .Search-Bar {
         margin-top: -6em !important;
-        /* Agrega el margen superior de 2em al elemento de búsqueda */
     }
     .clear-button {
         margin-top: -6em;
@@ -114,6 +108,19 @@
     }
 }
 
+@media (max-width: 432px) {
+    .Search-Bar {
+        margin-top: -0.8em !important;
+    }
+    .clear-button {
+        margin-top: -0.8em;
+    }
+    .text-List {
+        margin-top: 3em !important;
+        margin-bottom: -2em;
+    }
+}
+
 .no-tasks-message {
     display: flex;
     color: rgb(208, 190, 209);
@@ -121,7 +128,8 @@
     justify-content: center !important;
     font-size: 5em;
     white-space: nowrap;
-    margin-top: 1em;
+    margin-top: -0.5em;
+    margin-bottom: 0.2em !important;
 }
 
 .no-tasks-message1 {
@@ -146,32 +154,24 @@
     margin-bottom: 1em;
 }
 
-
-/* Ajusta el tamaño de fuente gradualmente para pantallas más pequeñas */
-
 @media (max-width: 986px) {
     .no-tasks-message1,
     .no-tasks-message {
         font-size: calc(24px - 2px * ((1000px - 986px) / (1920 - 986)));
-        /* Ajusta el tamaño de fuente con una transición suave */
         transition: font-size 0.3s ease;
-        /* Transición suave del tamaño de fuente */
-        /* Otros estilos para los elementos de texto en pantallas medianas */
     }
 }
 
 @media (max-width: 1000px) {
     .no-tasks-message1 {
         font-size: 45px;
-        padding-top: 1em;
-        margin-top: 3em !important;
+        margin-top: 4em !important;
+        margin-bottom: -0.5em !important;
     }
     .no-tasks-message {
         font-size: 45px;
         padding-top: 1em;
         margin-top: 0.1em !important;
-        /* Tamaño de fuente más pequeño para pantallas pequeñas */
-        /* Otros estilos para los elementos de texto en pantallas pequeñas */
     }
 }
 
@@ -185,8 +185,6 @@
         font-size: 40px;
         padding-top: 3em;
         margin-top: -2em !important;
-        /* Tamaño de fuente más pequeño para pantallas pequeñas */
-        /* Otros estilos para los elementos de texto en pantallas pequeñas */
     }
 }
 
@@ -195,15 +193,11 @@
         font-size: 28px;
         padding-top: 9em;
         margin-top: 1em !important;
-        /* Tamaño de fuente más pequeño para pantallas pequeñas */
-        /* Otros estilos para los elementos de texto en pantallas pequeñas */
     }
     .no-tasks-message {
         font-size: 25px;
         padding-top: 8.5em;
         margin-top: -7em !important;
-        /* Tamaño de fuente más pequeño para pantallas pequeñas */
-        /* Otros estilos para los elementos de texto en pantallas pequeñas */
     }
 }
 
@@ -220,17 +214,12 @@
 
 .custom-btn-group .btn {
     font-size: 12px;
-    /* Ajusta el tamaño de fuente según tus preferencias */
     padding-left: 25px !important
-    /* Espacio entre los botones */
 }
 
 @media (max-width: 445px) {
     .responsive-boton {
-        /* Establece un tamaño de fuente más pequeño */
         font-size: calc(10px - 2px * ((1000px - 445px) / (1920 - 445)));
-        /* Ajusta el tamaño de fuente con una transición suave */
         transition: font-size 0.3s ease;
-        /* Otros estilos de ajuste para los botones en pantallas pequeñas */
     }
 }
