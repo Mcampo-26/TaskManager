@@ -7,9 +7,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* Centra verticalmente los elementos */
     padding: 0 2rem;
-    /* Espacio alrededor del contenido */
 }
 
 Button {
@@ -23,9 +21,6 @@ Button {
 .new-task-button {
     margin-right: 3rem;
 }
-
-
-/* Estilos para pantallas pequeñas (menos de 500px de ancho) */
 
 @media (max-width: 500px) {
     .nav {

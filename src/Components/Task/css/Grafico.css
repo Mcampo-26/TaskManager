@@ -8,19 +8,13 @@
     margin-left: 9em;
     position: sticky;
     top: 4em;
-    /* Otros estilos para el gráfico */
 }
-
-
-/* Ajusta el ancho gradualmente para pantallas más pequeñas */
 
 @media (max-width: 986px) {
     .grafico {
         width: 80% !important;
         background-color: rgb(147, 151, 151);
-        /* Establece un fondo fijo para pantallas medianas */
         transition: width 0.3s ease, background-color 0.3s ease;
-        /* Transición suave del ancho y del fondo */
     }
 }
 
@@ -32,9 +26,7 @@
         margin-left: 4em !important;
         justify-content: center !important;
         background-color: rgb(147, 151, 151);
-        /* Establece un fondo fijo y ajusta otros estilos para pantallas pequeñas */
         transition: width 0.3s ease, background-color 0.3s ease;
-        /* Transición suave del ancho y del fondo */
     }
 }
 
@@ -70,18 +62,14 @@
     .grafico {
         width: 90%;
         order: 2 !important;
-        /* Añade !important para asegurarte de que el estilo se aplique */
         margin-top: 1em !important;
         justify-content: center !important;
-        /* Añade !important para asegurarte de que el estilo se aplique */
     }
 }
 
 @media (max-width: 986px) {
     .grafico {
         width: calc(80% + (100% - 80%) * ((100vw - 986px) / (1920 - 986))) !important;
-        /* Ajusta el ancho con una transición suave */
         transition: width 0.3s ease;
-        /* Otros estilos para el gráfico en tamaños medianos */
     }
 }

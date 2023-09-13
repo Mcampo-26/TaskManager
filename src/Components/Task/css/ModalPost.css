@@ -27,10 +27,8 @@
 
 @media (max-width: 500px) {
     .responsiveModal {
-      margin-left: -20px;
-      max-width: 100%; /* Hacer que el modal ocupe el 100% del ancho */
-      height: 100%; /* Ocupar toda la altura disponible */
+        margin-left: -20px;
+        max-width: 100%;
+        height: 100%;
     }
-  }
-  
-  
+}

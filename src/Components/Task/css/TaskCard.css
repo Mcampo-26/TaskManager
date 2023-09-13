@@ -19,11 +19,8 @@
     height: 400px;
     display: flex;
     justify-content: flex-start;
-    /* Alinear contenido a la izquierda */
     align-items: flex-start;
-    /* Alinear elementos a la izquierda */
     text-align: left;
-    /* Alinear texto a la izquierda */
     padding: 1em;
     margin: 0.4rem;
     font-family: "Merriweather Sans", "REM", "Roboto Slab", sans-serif;

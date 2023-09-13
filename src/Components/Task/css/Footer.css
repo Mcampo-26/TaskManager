@@ -18,7 +18,7 @@ body {
     height: 22em;
     border-style: solid;
     border-width: 3px 0px 0px 0px;
-    border-color:rgb(208,52,84);
+    border-color: rgb(208, 52, 84);
 }
 
 .footer-row {
@@ -26,7 +26,6 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 20px;
-    /* Cambia el valor de margin-top a 50px */
     margin-bottom: 50px;
 }
 
@@ -52,9 +51,7 @@ body {
     display: block;
     margin-bottom: 10px;
     padding-top: 7px;
-    /* Reducir el valor de padding-top a 10px */
     padding-bottom: -3px;
-    /* Reducir el valor de padding-bottom a 10px */
     transition: all .3s ease;
 }
 
