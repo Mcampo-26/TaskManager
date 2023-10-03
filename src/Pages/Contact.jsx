@@ -1,19 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import emailjs from 'emailjs-com';
-import '../Pages/css/Contact.css';
+import React, { useState, useEffect } from "react";
+import emailjs from "emailjs-com";
+import "../Pages/css/Contact.css";
+
+const nameRegex = /^[A-Za-z0-9\s]+$/;
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    inquiry: '',
+    name: "",
+    email: "",
+    inquiry: "",
     subscribe: true,
   });
 
+  const [remainingChars, setRemainingChars] = useState(100);
+  const maxNameLength = 15;
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    const newValue = type === 'checkbox' ? checked : value;
+    const newValue = type === "checkbox" ? checked : value;
 
+    if (name === "name" && !nameRegex.test(newValue)) {
+      return;
+    }
+    if (name === "name" && value.length > maxNameLength) {
+      return;
+    }
+    if (name === "inquiry" && value.length > 100) {
+      return;
+    }
+    if (name === "email" && !/^[\w@.]+$/.test(newValue)) {
+      return;
+    }
+    if (name === "email" && !newValue.endsWith(".com")) {
+      return;
+    }
+    if (name === "inquiry") {
+      const remaining = 100 - value.length;
+      setRemainingChars(remaining);
+    }
     setFormData({
       ...formData,
       [name]: newValue,
@@ -23,28 +47,48 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!nameRegex.test(formData.name)) {
+      alert(
+        "Please enter a valid name (only letters, numbers, and spaces are allowed)."
+      );
+      return;
+    }
+    if (formData.name.length !== maxNameLength) {
+      alert(`Name should have exactly ${maxNameLength} characters.`);
+      return;
+    }
+    if (!emailRegex.test(formData.email) || !formData.email.endsWith(".com")) {
+      alert('Please enter a valid email address that ends with ".com".');
+      return;
+    }
     try {
-      await emailjs.sendForm('service_bxl40rs', 'template_goi94t2', e.target, 'h3yy4ICYJmisn2ANM');
+      await emailjs.sendForm(
+        "service_bxl40rs",
+        "template_goi94t2",
+        e.target,
+        "h3yy4ICYJmisn2ANM"
+      );
       setFormData({
-        name: '',
-        email: '',
-        inquiry: '',
+        name: "",
+        email: "",
+        inquiry: "",
         subscribe: true,
       });
-
-      alert('The form was successfully submitted!');
+      alert("The form was successfully submitted!");
     } catch (error) {
-      console.error('Error sending the form:', error);
-      alert('An error occurred while sending the form. Please try again.');
+      console.error("Error sending the form:", error);
+      alert("An error occurred while sending the form. Please try again.");
     }
   };
-
   useEffect(() => {
-    const formElement = document.querySelector('#contact-form');
+    const formElement = document.querySelector("#contact-form");
     if (formElement) {
-      formElement.classList.add('scroll-to'); 
-      const yOffset = -200
-      window.scrollTo({ top: formElement.offsetTop + yOffset, behavior: 'smooth' });
+      formElement.classList.add("scroll-to");
+      const yOffset = -200;
+      window.scrollTo({
+        top: formElement.offsetTop + yOffset,
+        behavior: "smooth",
+      });
     }
   }, []);
 
@@ -55,8 +99,14 @@ const Contact = () => {
           <section className="container main_contacto ">
             <section className="row   mt-5">
               <article className="col-sm-12 col-md-6 my-3">
-                <h3 className="text-center text-light fs-1 titulo">Send a Message</h3>
-                <form className='form-con' id="contact-form" onSubmit={handleSubmit}>
+                <h3 className="text-center text-light fs-1 titulo">
+                  Send a Message
+                </h3>
+                <form
+                  className="form-con"
+                  id="contact-form"
+                  onSubmit={handleSubmit}
+                >
                   <div className="form-group my-3">
                     <label htmlFor="name" className="text-light">
                       Name
@@ -70,7 +120,12 @@ const Contact = () => {
                       required
                       value={formData.name}
                       onChange={handleChange}
+                      maxLength={maxNameLength}
                     />
+                    <div className="text-right text-light mt-2">
+                      Characters remaining:{" "}
+                      {maxNameLength - formData.name.length}
+                    </div>
                   </div>
                   <div className="form-group my-3">
                     <label htmlFor="email" className="text-light">
@@ -95,12 +150,16 @@ const Contact = () => {
                       id="inquiry"
                       name="inquiry"
                       className="form-control"
-                      placeholder="Enter your inquiry"
+                      placeholder="Enter your inquiry (maximum 100 characters)"
                       rows="4"
+                      maxLength="100"
                       required
                       value={formData.inquiry}
                       onChange={handleChange}
                     />
+                    <div className="text-right text-light mt-2">
+                      Characters remaining: {remainingChars}
+                    </div>
                   </div>
                   <div className="form-group form-check my-3">
                     <input
@@ -111,7 +170,10 @@ const Contact = () => {
                       checked={formData.subscribe}
                       onChange={handleChange}
                     />
-                    <label htmlFor="subscribe" className="form-check-label text-light">
+                    <label
+                      htmlFor="subscribe"
+                      className="form-check-label text-light"
+                    >
                       Subscribe to our newsletters
                     </label>
                   </div>
@@ -123,13 +185,14 @@ const Contact = () => {
               <article className="col-sm-12 col-md-6 my-3">
                 <h3 className="text-center text-light">Task Genius</h3>
                 <p className="text-light">
-                  Directions to our office for in-person inquiries. We're here to provide you with the best information and assistance.
+                  Directions to our office for in-person inquiries. We're here
+                  to provide you with the best information and assistance.
                 </p>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.1022202999184!2d-65.209390485688!3d-26.83670088316032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225d3ad7f30f1d%3A0xf8606cd659b8e3e4!2sRollingCode%20School!5e0!3m2!1ses-419!2sar!4v1616643393539!5m2!1ses-419!2sar"
                   className="w-100"
                   height="290"
-                  style={{ border: '0' }}
+                  style={{ border: "0" }}
                   allowFullScreen=""
                   loading="lazy"
                 ></iframe>
